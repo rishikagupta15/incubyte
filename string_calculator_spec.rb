@@ -48,4 +48,14 @@ RSpec.describe StringCalculator do
             expect(calculator.add("1\n4,6")).to eq(11)
         end
     end
+    describe "string with multiple numbers and semicolon(;) as the delimiter" do
+        it "returns the sum of the numbers as an integer" do
+            expect(calculator.add("//;\n1;2")).to eq(3)
+        end
+    end
+    describe "string with multiple numbers and multiple astrix(***) as the delimiter" do
+        it "returns the sum of the numbers as an integer" do
+            expect(calculator.add("//***\n1***2")).to eq(3)
+        end
+    end
 end
