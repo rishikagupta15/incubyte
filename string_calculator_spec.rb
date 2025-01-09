@@ -38,4 +38,16 @@ RSpec.describe StringCalculator do
             expect(calculator.add("12,300")).to eq(312)
         end
     end
+    describe "string with multiple one digit numbers and comma(,) as delemiter" do
+        it "returns the sum of the numbers as an integer" do
+            calculator = StringCalculator.new
+            expect(calculator.add("1,4,6")).to eq(11)
+        end
+    end
+    describe "string with multiple multi-digit numbers and comma(,) as delemiter" do
+        it "returns the sum as an integer" do
+            calculator = StringCalculator.new
+            expect(calculator.add("12,300,10,511")).to eq(833)
+        end
+    end
 end
