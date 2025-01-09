@@ -8,7 +8,7 @@ class StringCalculator
         delimiters = ["\n", ","]
         if numbers.start_with?("//")
             split_numbers_with_new_line = numbers.split("\n")
-            delimiters = [split_numbers_with_new_line[0][2..-1]]
+            delimiters = split_numbers_with_new_line[0][2..-1].scan(/\[([^\]]+)\]/).flatten
             numbers = [split_numbers_with_new_line[1]]
         else
             numbers = [numbers]
