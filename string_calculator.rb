@@ -12,6 +12,9 @@ class StringCalculator
         delimiters.each do |d|
             numbers = numbers.map{|n| n.split(d)}.flatten
         end
-        return numbers.map(&:to_i).sum
+        integer_numbers = numbers.map(&:to_i)
+        negative_numbers = integer_numbers.select{|num| num < 0 }
+        raise "negative numbers not allowed "+negative_numbers.join(',') if negative_numbers.length > 0
+        return integer_numbers.sum
     end
 end
