@@ -69,3 +69,12 @@ RSpec.describe StringCalculator do
         end
     end
 end
+RSpec.describe StringCalculator do
+    describe "check number of times the add function was called" do
+        it "returns the number of times the add function was made" do
+            calculator = StringCalculator.new
+            10.times{calculator.add("1,2")}
+            expect(calculator.get_called_count).to eq(10)
+        end
+    end
+end

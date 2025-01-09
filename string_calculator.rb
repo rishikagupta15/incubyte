@@ -1,5 +1,9 @@
 class StringCalculator
+    def initialize()
+      @call_count = 0
+    end
     def add(numbers)
+        @call_count += 1
         return 0 if !numbers
         delimiters = ["\n", ","]
         if numbers.start_with?("//")
@@ -16,5 +20,8 @@ class StringCalculator
         negative_numbers = integer_numbers.select{|num| num < 0 }
         raise "negative numbers not allowed "+negative_numbers.join(',') if negative_numbers.length > 0
         return integer_numbers.sum
+    end
+    def get_called_count()
+        return @call_count
     end
 end
