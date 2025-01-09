@@ -19,7 +19,7 @@ class StringCalculator
         integer_numbers = numbers.map(&:to_i)
         negative_numbers = integer_numbers.select{|num| num < 0 }
         raise "negative numbers not allowed "+negative_numbers.join(',') if negative_numbers.length > 0
-        return integer_numbers.sum
+        return integer_numbers.reject{|num| num > 1000 }.sum
     end
     def get_called_count()
         return @call_count
